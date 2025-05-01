@@ -1,0 +1,100 @@
+POST http://localhost:80/api/item
+Content-Type: application/json
+
+{}
+
+###
+POST https://ysfd1dwrnf.execute-api.us-east-1.amazonaws.com/auth/
+Content-Type: application/json
+
+{
+  "email": "victorrbravo@gmail.com",
+  "password": "123456"
+}
+
+###
+POST  https://t0ggpzn2k3.execute-api.us-east-1.amazonaws.com/stage/add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6ImVjZjAwMjg5LTI5NWQtNDg3ZS04ZjU5LTc1OWFmZTZjNjhiNyIsImF1dGhvcml6ZWQiOnRydWUsImVtYWlsIjoidmljdG9ycmJyYXZvQGdtYWlsLmNvbSIsImV4cCI6MTczMzEwNjE4Mn0.AP0dpXPMJ0hOzAGQ4-Z3ZlyJztZ5ls_CZTjhTU56Zw4
+
+{
+"action": "action: add_flow_step ticket: 117 status: Ludenam2  amount: 50 summary: Ludena media_date: 2024-11-19T00:58:04Z type: step  position: (-72.49004276265994,7.893157433502339) tags: n1,n2,n3,n4"
+}
+
+
+###
+POST https://t0ggpzn2k3.execute-api.us-east-1.amazonaws.com/stage/add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6IjEyNjI2YmJjLTNjZGYtNDQ1Ni1iMGJjLTJkMzhiODVmMmViZSIsImF1dGhvcml6ZWQiOnRydWUsImVtYWlsIjoidmljdG9ycmJyYXZvQGdtYWlsLmNvbSIsImV4cCI6MTczNjQ0MjkxN30._tTK_2xXoHtvLYABrqgh_AUiVM00iemn5qVDC338Lak
+
+{
+  "action": "action: show_flow_data ticket: 172"
+}
+
+###
+POST https://t0ggpzn2k3.execute-api.us-east-1.amazonaws.com/stage/add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6IjRhNzYzYjRlLWMzYjQtNDU5NS1hOTQyLTc0N2FmNzJkNTFmYyIsImF1dGhvcml6ZWQiOnRydWUsImVtYWlsIjoidmljdG9ycmJyYXZvQGdtYWlsLmNvbSIsImV4cCI6MTcyMDgyMjQwNX0.3fVw4gQeUbIxcon3v_uUL0682-1jFfiImyWkL8BqozQ
+
+{
+  "action": "action: get_stories_by_email_grouped email: victorrbravo@gmail.com"
+}
+
+
+###
+POST https://t0ggpzn2k3.execute-api.us-east-1.amazonaws.com/stage/add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6ImQ0OTAyNjdkLTM1NDUtNDRhYS1hZmM0LWMyNzM3ZjE3NDE3MSIsImF1dGhvcml6ZWQiOnRydWUsImVtYWlsIjoidmljdG9ycmJyYXZvQGdtYWlsLmNvbSIsImV4cCI6MTcyMDc0NzE1NX0.fccfomn8qzRaD3PBInFmI_lIeRUCnt8jAK4riLmdIls
+
+{
+  "action": "action: move_task id_flow: 10 current: Cream target: Coffee maker"
+}
+
+
+###
+POST https://t0ggpzn2k3.execute-api.us-east-1.amazonaws.com/stage/add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6IjhkM2NjZDRhLWNkYmEtNDRkNi1iMmJkLTgxYjFkNzY2Y2VjMSIsImF1dGhvcml6ZWQiOnRydWUsImVtYWlsIjoidmljdG9ycmJyYXZvQGdtYWlsLmNvbSIsImV4cCI6MTczMDkzODc3OX0.ZSzSv6kt-7RWt9_BL1m1ABYpGlP47fHFzgupJGquhJ4
+
+{
+  "action": "action: change_step_report id_story: 127  name: Churros  report: true"
+}
+
+
+###
+POST https://t0ggpzn2k3.execute-api.us-east-1.amazonaws.com/stage/add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6ImFmZTYxZDQ1LWFhM2EtNDJiNS1iZDYwLTgwNzIxYWZlMThlMCIsImF1dGhvcml6ZWQiOnRydWUsImVtYWlsIjoidmljdG9ycmJyYXZvQGdtYWlsLmNvbSIsImV4cCI6MTczMDY4MzIxMH0.87kFE6HVY8elmx6WLAP6xJHo-pszEHqHl1viJsERbGY
+
+{
+  "action": "action: reset_step_report id_story: 124"
+}
+
+
+###
+POST https://t0ggpzn2k3.execute-api.us-east-1.amazonaws.com/stage/add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6ImY3NGY0YzVkLTg0ZDgtNDFjOC04NDI2LTk0NTAwZmZlYWY4YiIsImF1dGhvcml6ZWQiOnRydWUsImVtYWlsIjoidmljdG9ycmJyYXZvQGdtYWlsLmNvbSIsImV4cCI6MTcyMTQxOTY2N30.F6E2oVy6ubPL5jM1KsEqQWMhq0-MfpZT-NOLx4a_oJg
+
+{
+  "action": "action: updated_tracking pk_tracking: 485 updated_at: 2024-07-09T10:10:00Z"
+}
+
+###
+POST https://t0ggpzn2k3.execute-api.us-east-1.amazonaws.com/stage/add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6IjFkY2UyZTU4LThhZTQtNGZiYS1hZTQ1LTdlMGU0MWJjZjI4MiIsImF1dGhvcml6ZWQiOnRydWUsImVtYWlsIjoidmljdG9ycmJyYXZvQGdtYWlsLmNvbSIsImV4cCI6MTczODQ0Nzk0NX0.k7HL4-5TBsXTluxf5o4DEgj4Db99YycXWeqpq4GBE54
+
+{
+  "action": "action: delete_flow_step id: 1018"
+}
+
+
+###
+POST https://u19x53aisk.execute-api.us-east-1.amazonaws.com/actionable/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6IjFkY2UyZTU4LThhZTQtNGZiYS1hZTQ1LTdlMGU0MWJjZjI4MiIsImF1dGhvcml6ZWQiOnRydWUsImVtYWlsIjoidmljdG9ycmJyYXZvQGdtYWlsLmNvbSIsImV4cCI6MTczODQ0Nzk0NX0.k7HL4-5TBsXTluxf5o4DEgj4Db99YycXWeqpq4GBE54
+
+{
+  "action": "action: suggest_short_name_for_image image_id: E5C223D0-51CE-4C14-98EB-42509FE9E2A0.jpb"
+}

@@ -1,0 +1,29 @@
+POST http://localhost:8081/change_pass
+Content-Type: application/json
+
+{
+  "code": "tccy9S",
+  "password": "1234567",
+  "new_password": "123456"
+}
+
+
+###
+POST http://localhost:8081/change_pass
+Content-Type: application/json
+
+{
+  "code": "123456",
+  "password": "",
+  "new_password": ""
+}
+
+###
+POST http://localhost:8081/send_pass
+Content-Type: application/json
+
+{
+  "email": "victorrbravo@gmail.com"
+}
+
+###

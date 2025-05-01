@@ -1,0 +1,33 @@
+# === JetBrains IDE files ===
+.idea/
+*.iml
+*.ipr
+*.iws
+Dockerfile
+# === Go build artifacts ===
+/bin/
+/build/
+/dist/
+*.so
+*.dylib
+*.test
+*.out
+
+# === Go module/vendor/cache ===
+*.sum
+go.sum
+
+# === OS generated files ===
+.DS_Store
+Thumbs.db
+
+# === Logs and temporary files ===
+*.log
+*.tmp
+*.swp
+
+# === Coverage and test output ===
+*.coverprofile
+coverage.*
+*.prof
+

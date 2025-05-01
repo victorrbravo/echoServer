@@ -1,0 +1,5 @@
+# Ignore the binary and any build artifacts
+main
+*.log
+*.swp
+

@@ -1,0 +1,118 @@
+POST https://u19x53aisk.execute-api.us-east-1.amazonaws.com/actionable/
+Content-Type: application/json
+
+{
+  "email": "victorrbravo@gmail.com",
+  "password": "123456"
+}
+
+
+###
+POST https://ysfd1dwrnf.execute-api.us-east-1.amazonaws.com/auth/
+Content-Type: application/json
+
+{
+  "email": "victorrbravo@gmail.com",
+  "password": "123456"
+}
+
+###
+POST https://ysfd1dwrnf.execute-api.us-east-1.amazonaws.com/auth/
+Content-Type: application/json
+
+{
+    "email": "victorrbravo@gmail.com",
+      "password": "123456"
+}
+
+###
+POST http://localhost:8081/new
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6IjM0ZWQ2NWVhLWE4ZWEtNGE0Ny04NGU2LWM0ZGFkZWEyN2E1MyIsImF1dGhvcml6ZWQiOnRydWUsImVtYWlsIjoidmljdG9ycmJyYXZvQGdtYWlsLmNvbSIsImV4cCI6MTcxMzcxNzI0N30.H_JnbeSKjB7M7JwPMw9Acefw26AIo-bswDeLdPU0Nis
+
+{
+  "action": "action: show_flow_data ticket: 44"
+}
+
+###
+POST https://u19x53aisk.execute-api.us-east-1.amazonaws.com/actionable/
+Content-Type: application/json
+
+{
+  "action": "action: show_flow_data ticket: 44"
+}
+
+
+###
+POST https://u19x53aisk.execute-api.us-east-1.amazonaws.com/actionable/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6IjA5ZGUxZmRiLTc2ZGItNDg0OC1hY2E1LWRhYWU4MTdhOTI5NSIsImF1dGhvcml6ZWQiOnRydWUsImVtYWlsIjoidmljdG9ycmJyYXZvQGdtYWlsLmNvbSIsImV4cCI6MTcyODA3MjY0Mn0.X8b3cTLfE65cj6TCK4A095ylsPOy9Zj-8LnMlWPCIaQ
+
+{
+  "action": "action: suggest_short_name_for_image image_id: 005E19E4-DEEE-4660-B008-1F18D7D9A7DB.jpg"
+}
+
+
+###
+POST https://t0ggpzn2k3.execute-api.us-east-1.amazonaws.com/stage/login
+Content-Type: application/json
+
+{
+  "email": "victorrbravo@gmail.com",
+  "password": "123456"
+}
+
+
+###
+
+POST https://t0ggpzn2k3.execute-api.us-east-1.amazonaws.com/stage/add
+Content-Type: application/json
+
+{
+"action": "action: get_presigned_image name: 41026416-FD28-4357-A2FA-5C42DC257C77"
+}
+
+###
+
+POST https://doitall.work/login
+Content-Type: application/json
+
+{
+"email": "victorrbravo@gmail.com",
+"password": "123456"
+}
+
+
+###
+POST https://doitall.work/new
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6IjBjNTdiODAzLTk3YTAtNDZhYy05NmMzLTgyNTYxOTdjOWQ0YiIsImF1dGhvcml6ZWQiOnRydWUsImVtYWlsIjoidmljdG9ycmJyYXZvQGdtYWlsLmNvbSIsImV4cCI6MTc0MjA5MDM5Mn0.KtjgWMBUjdUWl9WV8jlbQ8wg60TnAa3kHgUbNXDrZ0s
+
+{
+  "action": "action: suggest_short_name_for_image image_id: 005E19E4-DEEE-4660-B008-1F18D7D9A7DB.jpg"
+}
+
+
+
+###
+POST https://doitall.work/new
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6IjBjNTdiODAzLTk3YTAtNDZhYy05NmMzLTgyNTYxOTdjOWQ0YiIsImF1dGhvcml6ZWQiOnRydWUsImVtYWlsIjoidmljdG9ycmJyYXZvQGdtYWlsLmNvbSIsImV4cCI6MTc0MjA5MDM5Mn0.KtjgWMBUjdUWl9WV8jlbQ8wg60TnAa3kHgUbNXDrZ0s
+
+{
+  "action": "action: show_flow_data ticket: 174"
+}
+
+
+###
+GET https://apps.migracioncolombia.gov.co:4443/citas/api/consultar-citas
+Content-Type: application/json
+
+{ "CÚCUTA", "CERTIFICADO DE MOVIMIENTOS MIGRATORIOS", "17/03/2025" }
+
+
+
+
+
+
+
