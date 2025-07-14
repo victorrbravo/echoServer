@@ -2,12 +2,15 @@ package main
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"fmt"
 	"github.com/labstack/echo/v4"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
+	"path/filepath"
 	db "stories/database"
 	"stories/handlers/auth"
 	"stories/handlers_utils"
@@ -32,9 +35,9 @@ type ArrayResponse struct {
 	Values []interface{} `json:"values"`
 }
 
-func executeAction(input string) (string, error) {
+func executeAction(ctx context.Context, input string) (string, error) {
 	order := []byte(input)
-	data, err := input2.ProcessInput(order, &query)
+	data, err := input2.ProcessInput(ctx, order, &query)
 	if err != nil {
 		return data, err
 	}
@@ -72,11 +75,10 @@ func main() {
 		return
 	}
 
+	e.Static("/data", "data")
 	log.Println("db connected successfully!")
 	// Define a route
-	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello, Echo!")
-	})
+	e.GET("/", serveSpecificHTML("page1.html"))
 
 	e.POST("/change_pass", func(c echo.Context) error {
 		log.Println("/change_pass change_entering POST login")
@@ -181,7 +183,7 @@ func main() {
 		log.Println("action.Action |", action.Action, "|")
 		formatedAction := utils.FormatYaml(action.Action)
 		log.Println("action.Action (formatted) |", formatedAction, "|")
-		data, err = executeAction(formatedAction)
+		data, err = executeAction(authorizer.Ctx, formatedAction)
 		if err != nil {
 			log.Println("executeAction error", err.Error())
 			return c.JSON(http.StatusBadRequest, Response{From: "input", Message: err.Error()})
@@ -208,4 +210,58 @@ func main() {
 
 	// Start the server
 	e.Start(":8080")
+}
+
+// readHTMLFile reads an HTML file from the assets folder
+func readHTMLFile(filename string) (string, error) {
+	// Construct the file path
+	filePath := filepath.Join("assets", filename)
+
+	// Read the file
+	content, err := ioutil.ReadFile(filePath)
+	if err != nil {
+		return "", fmt.Errorf("failed to read HTML file: %w", err)
+	}
+
+	return string(content), nil
+}
+
+// serveHTMLFile serves an HTML file from assets folder
+func serveHTMLFile(c echo.Context) error {
+	// Get filename from URL parameter or use default
+	filename := c.Param("filename")
+	if filename == "" {
+		filename = "index.html" // default file
+	}
+
+	// Ensure the filename has .html extension
+	if filepath.Ext(filename) != ".html" {
+		filename += ".html"
+	}
+
+	// Read the HTML file
+	content, err := readHTMLFile(filename)
+	if err != nil {
+		return c.JSON(http.StatusNotFound, map[string]string{
+			"error": "HTML file not found",
+			"file":  filename,
+		})
+	}
+
+	// Serve the HTML content
+	return c.HTML(http.StatusOK, content)
+}
+
+// Alternative function to serve a specific HTML file
+func serveSpecificHTML(htmlFile string) echo.HandlerFunc {
+	return func(c echo.Context) error {
+		content, err := readHTMLFile(htmlFile)
+		if err != nil {
+			return c.JSON(http.StatusInternalServerError, map[string]string{
+				"error": "Failed to load HTML file",
+				"file":  htmlFile,
+			})
+		}
+		return c.HTML(http.StatusOK, content)
+	}
 }

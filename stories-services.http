@@ -97,7 +97,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6I
 ###
 POST https://doitall.work/new
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6IjBjNTdiODAzLTk3YTAtNDZhYy05NmMzLTgyNTYxOTdjOWQ0YiIsImF1dGhvcml6ZWQiOnRydWUsImVtYWlsIjoidmljdG9ycmJyYXZvQGdtYWlsLmNvbSIsImV4cCI6MTc0MjA5MDM5Mn0.KtjgWMBUjdUWl9WV8jlbQ8wg60TnAa3kHgUbNXDrZ0s
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6IjNlZDEwMGJjLTBmM2YtNDJlYy05NTgyLTk3MjI1NzA3ZjlkNSIsImF1dGhvcml6ZWQiOnRydWUsImVtYWlsIjoidmljdG9ycmJyYXZvQGdtYWlsLmNvbSIsImV4cCI6MTc0OTI2MzI2NX0.IdlvhKPWNs5gWaWHdogH5RJnEn9tr62jBcavMzWC6EI
 
 {
   "action": "action: show_flow_data ticket: 174"
@@ -105,10 +105,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6I
 
 
 ###
-GET https://apps.migracioncolombia.gov.co:4443/citas/api/consultar-citas
+POST http://localhost:8080/new
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6ImRlMWVhMGMzLTgwNjEtNGQyMC1iMDQ1LWM1NmUzYjFmMzNkMyIsImF1dGhvcml6ZWQiOnRydWUsImVtYWlsIjoidmljdG9ycmJyYXZvQGdtYWlsLmNvbSIsImV4cCI6MTc0OTI2Mzk1MX0.HtnCF_OV1ikEalAZMb8s3LjSeg0sNwOzMPb2CH0xGEE
 
-{ "CÚCUTA", "CERTIFICADO DE MOVIMIENTOS MIGRATORIOS", "17/03/2025" }
+{
+  "action": "action: get_stories_by_email_grouped"
+}
 
 
 

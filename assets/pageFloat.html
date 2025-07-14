@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoItAll - Create Your Stories</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header-all {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 0;
+        }
+
+        .app-title {
+            font-size: 4rem;
+            font-weight: 800;
+            color: white;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .app-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .phone-mockup {
+            position: relative;
+            width: 300px;
+            height: 600px;
+            margin: 0 auto 60px;
+            background: #1a1a1a;
+            border-radius: 40px;
+            padding: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            animation: phoneFloat 3s ease-in-out infinite;
+        }
+
+        .screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 25px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .app-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .app-logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff6b6b, #ffa726);
+            border-radius: 15px;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(255,107,107,0.3);
+        }
+
+        .app-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .postit-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .postit {
+            background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+            border-radius: 8px;
+            padding: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            transform: rotate(-1deg);
+            transition: all 0.3s ease;
+            animation: postItPop 0.6s ease-out;
+        }
+
+        .postit:nth-child(even) {
+            transform: rotate(1deg);
+            background: linear-gradient(135deg, #a8e6cf, #88d8a3);
+        }
+
+        .postit:nth-child(3) {
+            background: linear-gradient(135deg, #ffd3e1, #fd79a8);
+        }
+
+        .postit:nth-child(4) {
+            background: linear-gradient(135deg, #c7ecee, #74b9ff);
+        }
+
+        .postit:hover {
+            transform: rotate(0deg) scale(1.05);
+            z-index: 10;
+        }
+
+        .postit-content {
+            font-size: 10px;
+            line-height: 1.3;
+            color: #2d3436;
+            font-weight: 500;
+        }
+
+        .postit-time {
+            font-size: 8px;
+            color: #636e72;
+            margin-top: 5px;
+            font-weight: 400;
+        }
+
+        .senda-timeline {
+            background: rgba(255,255,255,0.9);
+            border-radius: 15px;
+            padding: 15px;
+            margin-top: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 11px;
+        }
+
+        .timeline-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ff6b6b;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .timeline-content {
+            color: #2d3436;
+            font-weight: 500;
+        }
+
+        .features-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            background: rgba(255,255,255,0.25);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #ff6b6b, #ffa726);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(255,107,107,0.3);
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            color: rgba(255,255,255,0.9);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .use-cases {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 50px;
+            text-align: center;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .use-cases h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .use-case {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .use-case:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.3);
+        }
+
+        .use-case-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .use-case h3 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .use-case p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .download-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(102,126,234,0.4);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102,126,234,0.6);
+            background: linear-gradient(135deg, #764ba2, #667eea);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes phoneFloat {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(1deg);
+            }
+        }
+
+        @keyframes postItPop {
+            0% {
+                transform: scale(0.8) rotate(-5deg);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1) rotate(2deg);
+            }
+            100% {
+                transform: scale(1) rotate(-1deg);
+                opacity: 1;
+            }
+        }
+
+        .tips-indicator {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 12px;
+            height: 12px;
+            background: #e74c3c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8px;
+            color: white;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .app-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .phone-mockup {
+                width: 250px;
+                height: 500px;
+            }
+            
+            .features-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .use-case-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="app-title">DoItAll</h1>
+            <p class="app-subtitle">Create Your Stories, One PostIt at a Time</p>
+        </div>
+
+        <div class="phone-mockup">
+            <div class="screen">
+                <div class="status-bar">
+                    <span>9:41 AM</span>
+                    <span>📶 🔋</span>
+                </div>
+                
+                <div class="app-header">
+                    <div class="app-logo">D</div>
+                    <div class="app-name">DoItAll</div>
+                </div>
+
+                <div class="postit-container">
+                    <div class="postit">
+                        <div class="tips-indicator">💡</div>
+                        <div class="postit-content">📸 Perfect pasta shot at Mario's</div>
+                        <div class="postit-time">2 mins ago • 0.2 km</div>
+                    </div>
+                    
+                    <div class="postit">
+                        <div class="postit-content">🎥 Boiling technique video</div>
+                        <div class="postit-time">5 mins ago • Same location</div>
+                    </div>
+                    
+                    <div class="postit">
+                        <div class="tips-indicator">💡</div>
+                        <div class="postit-content">💭 Don't forget: add salt first!</div>
+                        <div class="postit-time">8 mins ago</div>
+                    </div>
+                    
+                    <div class="postit">
+                        <div class="postit-content">📸 Final plate presentation</div>
+                        <div class="postit-time">12 mins ago • 0.1 km</div>
+                    </div>
+                </div>
+
+                <div class="senda-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">🍝 Senda: "Perfect Pasta Recipe"</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot" style="background: #74b9ff;"></div>
+                        <div class="timeline-content">📍 Connected by location & time</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot" style="background: #00b894;"></div>
+                        <div class="timeline-content">💡 3 Tips included</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="features-section">
+            <div class="feature-card">
+                <div class="feature-icon">📝</div>
+                <h3 class="feature-title">Smart PostIts</h3>
+                <p class="feature-description">Capture photos, videos, and thoughts as colorful PostIt notes. Each one automatically tagged with time and location for seamless organization.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🗺️</div>
+                <h3 class="feature-title">Sendas Workflow</h3>
+                <p class="feature-description">Connect your PostIts into meaningful stories called "Sendas" - workflows that link your experiences through time and distance.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">💡</div>
+                <h3 class="feature-title">Interactive Tips</h3>
+                <p class="feature-description">Each PostIt can contain helpful tips and insights, making your Sendas rich with actionable information and personal wisdom.</p>
+            </div>
+        </div>
+
+        <div class="use-cases">
+            <h2>Perfect for Every Story</h2>
+            <div class="use-case-grid">
+                <div class="use-case">
+                    <div class="use-case-icon">👨‍🍳</div>
+                    <h3>Recipe Adventures</h3>
+                    <p>Document your cooking journey from ingredient shopping to final presentation, with tips and techniques at every step.</p>
+                </div>
+
+                <div class="use-case">
+                    <div class="use-case-icon">🗺️</div>
+                    <h3>Travel Stories</h3>
+                    <p>Create immersive travel guides by capturing moments at tourist spots, complete with location-based recommendations.</p>
+                </div>
+
+                <div class="use-case">
+                    <div class="use-case-icon">💰</div>
+                    <h3>Expense Tracking</h3>
+                    <p>Build visual monthly expense reports by photographing receipts and adding contextual notes about your spending habits.</p>
+                </div>
+
+                <div class="use-case">
+                    <div class="use-case-icon">📚</div>
+                    <h3>Learning Journeys</h3>
+                    <p>Document your learning process with photos, videos, and insights, creating comprehensive study guides.</p>
+                </div>
+
+                <div class="use-case">
+                    <div class="use-case-icon">🏠</div>
+                    <h3>Home Projects</h3>
+                    <p>Track DIY projects and home improvements with before/after photos and helpful tips for future reference.</p>
+                </div>
+
+                <div class="use-case">
+                    <div class="use-case-icon">🎯</div>
+                    <h3>Goal Achievement</h3>
+                    <p>Visualize your progress toward goals with milestone photos and motivational notes linked by your journey.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <a href="#" class="download-button">📱 Download on the App Store</a>
+        </div>
+    </div>
+    <div class="container">
+        <img src="data/tiramisu.jpeg" alt="My Image" width="400">
+    </div>
+</body>
+</html>
